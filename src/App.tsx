@@ -56,6 +56,7 @@ export default function App() {
             setValue={calculator.setValue}
             results={calculator.results}
             onRequestForm={handleRequestForm}
+            onFormSubmit={handleFormSubmit}
             syncIndicator={
               <SyncIndicator
                 pendingCount={queue.pendingCount}

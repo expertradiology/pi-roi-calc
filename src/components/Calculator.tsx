@@ -13,20 +13,23 @@ import {
   formatNumber,
 } from "../lib/constants";
 import type { CalculatorResults } from "../hooks/useCalculator";
+import type { LeadFormData } from "../lib/hubspot";
 import Slider from "./Slider";
 import MetricCard from "./MetricCard";
 import BarChart from "./BarChart";
 import BenchmarkItem from "./BenchmarkItem";
+import InlineCtaForm from "./InlineCtaForm";
 
 interface CalculatorProps {
   values: Record<string, number>;
   setValue: (key: string, value: number) => void;
   results: CalculatorResults;
   onRequestForm: () => void;
+  onFormSubmit: (data: LeadFormData) => Promise<void>;
   syncIndicator?: React.ReactNode;
 }
 
-export default function Calculator({ values, setValue, results, onRequestForm, syncIndicator }: CalculatorProps) {
+export default function Calculator({ values, setValue, results, onRequestForm, onFormSubmit, syncIndicator }: CalculatorProps) {
   const [benchmarksOpen, setBenchmarksOpen] = useState(false);
 
   const funnelItems = [
@@ -320,6 +323,9 @@ export default function Calculator({ values, setValue, results, onRequestForm, s
             </div>
           </div>
         </div>
+
+        {/* ===== INLINE CTA FORM ===== */}
+        <InlineCtaForm results={results} onSubmit={onFormSubmit} />
 
         {/* ===== DISCLAIMER ===== */}
         <div className="mt-12 rounded-2xl" style={{ padding: 24, background: COLORS.cardBg, border: `1px solid ${COLORS.border}` }}>
