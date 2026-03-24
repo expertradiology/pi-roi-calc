@@ -299,12 +299,12 @@ export default function Calculator({ values, setValue, results, onRequestForm, o
             <div style={{ overflow: "hidden" }}>
               <div style={{ padding: "0 24px 24px", borderTop: benchmarksOpen ? "1px solid #e8ecf2" : "none" }}>
                 <div className="text-center mb-8 mt-6">
-                  <p
-                    className="text-[11px] font-sans font-semibold uppercase m-0 mb-2.5"
-                    style={{ letterSpacing: "0.15em", color: PRIMARY }}
+                  <span
+                    className="inline-flex items-center px-3 py-1 rounded-full font-sans text-[10px] font-bold uppercase tracking-wider mb-3"
+                    style={{ background: "rgba(17,106,204,0.08)", color: PRIMARY, border: "1px solid rgba(17,106,204,0.15)" }}
                   >
                     Research-Backed
-                  </p>
+                  </span>
                   <h3 className="font-sans font-bold text-[24px] m-0 mb-2" style={{ color: COLORS.heading }}>
                     Why Report Clarity Matters
                   </h3>

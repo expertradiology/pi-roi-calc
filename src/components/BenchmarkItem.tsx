@@ -11,13 +11,10 @@ export default function BenchmarkItem({
 }) {
   return (
     <div
-      className="rounded-lg p-3.5"
+      className="rounded-lg p-4"
       style={{
         background: "#f8fafc",
         border: "1px solid #e2e8f0",
-        borderLeftWidth: 3,
-        borderLeftColor: PRIMARY,
-        borderLeftStyle: "solid",
       }}
     >
       <p className="text-[18px] font-sans font-bold m-0 mb-1" style={{ color: PRIMARY }}>
