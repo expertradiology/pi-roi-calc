@@ -84,7 +84,7 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
         style={{
           background: "linear-gradient(135deg, #eef4ff 0%, #dbeafe 50%, #eef4ff 100%)",
           border: "1px solid rgba(17,106,204,0.12)",
-          padding: "48px",
+          padding: "clamp(24px, 5vw, 48px)",
         }}
       >
         {/* Top accent line */}

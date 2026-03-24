@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="pt-[88px] mb-10 px-4">
+    <div className="pt-[84px] sm:pt-[88px] mb-6 sm:mb-10 px-3 sm:px-4">
       <div
         className="relative rounded-2xl overflow-hidden mx-auto"
         style={{
@@ -30,22 +30,22 @@ export default function Hero() {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
           {/* Left: Text content */}
-          <div className="p-8 md:p-10 lg:p-12 lg:pb-10">
+          <div className="p-6 sm:p-8 md:p-10 lg:p-12 lg:pb-10">
             <p
-              className="text-[11px] font-semibold uppercase tracking-[0.15em] mb-2.5"
+              className="text-[11px] font-semibold uppercase tracking-[0.15em] mb-2"
               style={{ color: "rgba(255,255,255,0.6)" }}
             >
               Business Case Calculator
             </p>
             <h1
               className="font-bold leading-tight mb-3 text-white"
-              style={{ fontSize: "clamp(26px, 3.5vw, 40px)" }}
+              style={{ fontSize: "clamp(24px, 3.5vw, 40px)" }}
             >
               The Value of Illustrated Radiology Reports{" "}
               <span style={{ color: "#93c5fd" }}>for Personal Injury Firms</span>
             </h1>
             <p
-              className="text-[14px] leading-relaxed mt-3 mb-0 max-w-[520px]"
+              className="text-[13px] sm:text-[14px] leading-relaxed mt-2 sm:mt-3 mb-0 max-w-[520px]"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
               Standard radiology reports are written for doctors, not juries. See how illustrated, plain-language reports
@@ -55,7 +55,7 @@ export default function Hero() {
               onClick={() => {
                 document.getElementById("calculator-card")?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="inline-block font-semibold text-[13px] tracking-wide rounded-lg mt-6 border-none cursor-pointer"
+              className="inline-block font-semibold text-[13px] tracking-wide rounded-lg mt-5 sm:mt-6 border-none cursor-pointer"
               style={{
                 background: "rgba(255,255,255,0.15)",
                 backdropFilter: "blur(8px)",
@@ -68,8 +68,8 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Right: Report mockup image */}
-          <div className="relative flex items-end justify-center" style={{ minHeight: 320, overflow: "visible" }}>
+          {/* Right: Report mockup image — hidden on small mobile, visible on tablet+ */}
+          <div className="relative hidden sm:flex items-end justify-center overflow-hidden" style={{ minHeight: 280 }}>
             <img
               src="/images/reports/v3-exrad-report-pages.png"
               alt="Expert Radiology illustrated report pages spread showing anatomical illustrations, MRI findings, and plain-language findings"

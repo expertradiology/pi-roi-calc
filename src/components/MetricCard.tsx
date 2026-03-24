@@ -19,8 +19,8 @@ export default function MetricCard({
         background: "#ffffff",
         border: "1px solid #e8ecf2",
         boxShadow: "0 2px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03)",
-        padding: "28px",
-        minWidth: 200,
+        padding: "20px 24px",
+        minWidth: 0,
       }}
     >
       <p
@@ -32,7 +32,7 @@ export default function MetricCard({
       <p
         className="font-sans font-bold m-0 leading-none"
         style={{
-          fontSize: 42,
+          fontSize: "clamp(28px, 5vw, 42px)",
           color: highlight ? PRIMARY : "#182233",
         }}
       >

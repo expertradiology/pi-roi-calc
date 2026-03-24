@@ -87,7 +87,7 @@ export default function Calculator({ values, setValue, results, onRequestForm, o
 
         {/* ===== CALCULATOR CARD ===== */}
         <div
-          className="rounded-2xl mb-10"
+          className="roi-card-responsive rounded-2xl mb-10"
           style={{
             background: "#ffffff",
             boxShadow: "0 4px 32px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)",
@@ -95,7 +95,7 @@ export default function Calculator({ values, setValue, results, onRequestForm, o
             padding: "32px",
           }}
         >
-          <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
+          <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
             {/* ===== LEFT: SLIDERS ===== */}
             <div>
               <h2
@@ -378,38 +378,38 @@ export default function Calculator({ values, setValue, results, onRequestForm, o
 
       {/* ===== STICKY BOTTOM BAR ===== */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-40 flex items-center justify-center gap-4 flex-wrap"
+        className="roi-sticky-bar fixed bottom-0 left-0 right-0 z-40 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"
         style={{
-          background: "rgba(255,255,255,0.85)",
+          background: "rgba(255,255,255,0.92)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           borderTop: "1px solid rgba(17,106,204,0.1)",
-          padding: "12px 24px",
+          padding: "10px 16px 12px",
           boxShadow: "0 -4px 20px rgba(0,0,0,0.06)",
         }}
       >
-        <div className="flex items-center gap-3 flex-wrap justify-center">
-          <span className="text-[12px] font-sans" style={{ color: COLORS.text2 }}>
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center text-center">
+          <span className="text-[11px] sm:text-[12px] font-sans" style={{ color: COLORS.text2 }}>
             Your firm could be leaving{" "}
-            <strong className="font-bold text-[16px]" style={{ color: COLORS.accentText }}>
+            <strong className="font-bold text-[14px] sm:text-[16px]" style={{ color: COLORS.accentText }}>
               {formatCurrency(results.netGain)}
             </strong>{" "}
             on the table annually
           </span>
-          <span className="text-[11px]" style={{ color: COLORS.text4 }}>|</span>
-          <span className="text-[12px] font-sans" style={{ color: COLORS.text3 }}>
-            {results.roi.toFixed(0)}% ROI on illustrated reports
+          <span className="text-[11px] hidden sm:inline" style={{ color: COLORS.text4 }}>|</span>
+          <span className="text-[11px] sm:text-[12px] font-sans" style={{ color: COLORS.text3 }}>
+            {results.roi.toFixed(0)}% ROI
           </span>
         </div>
         <button
           onClick={onRequestForm}
-          className="font-sans font-bold text-[13px] tracking-wide whitespace-nowrap border-none rounded-md cursor-pointer"
+          className="roi-bottom-btn font-sans font-bold text-[13px] tracking-wide whitespace-nowrap border-none rounded-lg cursor-pointer w-full sm:w-auto"
           style={{
             background: `linear-gradient(135deg, #cc1522, ${ACCENT}, #ff4d5a)`,
             backgroundSize: "200% 100%",
             animation: "roi-shimmer 3s ease infinite, roi-pulse-red 2s ease-in-out infinite",
             color: "#fff",
-            padding: "8px 20px",
+            padding: "10px 24px",
           }}
         >
           Send Me My Results &#8594;

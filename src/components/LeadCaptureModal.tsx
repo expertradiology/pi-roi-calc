@@ -87,12 +87,12 @@ export default function LeadCaptureModal({ isOpen, onClose, onSubmit, results }:
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center"
+      className="fixed inset-0 z-50 flex items-end md:items-center justify-center"
       style={{ background: "rgba(0,0,0,0.5)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="w-full max-w-[540px] rounded-t-2xl bg-white overflow-y-auto"
+        className="w-full max-w-[540px] rounded-t-2xl md:rounded-2xl bg-white overflow-y-auto"
         style={{
           maxHeight: "90vh",
           transform: visible ? "translateY(0)" : "translateY(100%)",
