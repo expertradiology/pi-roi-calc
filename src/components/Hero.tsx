@@ -69,12 +69,12 @@ export default function Hero() {
           </div>
 
           {/* Right: Report mockup image */}
-          <div className="relative flex items-end justify-end overflow-hidden" style={{ minHeight: 320 }}>
+          <div className="relative flex items-end justify-center" style={{ minHeight: 320, overflow: "visible" }}>
             <img
               src="/images/reports/v3-exrad-report-pages.png"
               alt="Expert Radiology illustrated report pages spread showing anatomical illustrations, MRI findings, and plain-language findings"
-              className="block max-w-none h-auto"
-              style={{ width: "110%", marginRight: "-5%", paddingTop: 16 }}
+              className="block h-auto"
+              style={{ width: "100%", maxWidth: "none", paddingTop: 16 }}
               loading="eager"
               width={964}
               height={662}
