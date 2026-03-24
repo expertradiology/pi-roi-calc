@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="pt-[76px] mb-10 px-4">
+    <div className="pt-[88px] mb-10 px-4">
       <div
         className="relative rounded-2xl overflow-hidden mx-auto"
         style={{

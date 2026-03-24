@@ -3,7 +3,7 @@ export default function Header() {
     <header
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center"
       style={{
-        height: 60,
+        height: 72,
         background: "rgba(255,255,255,0.9)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
@@ -13,7 +13,7 @@ export default function Header() {
       <img
         src="/logo/logo.svg"
         alt="Expert Radiology"
-        style={{ height: 36 }}
+        style={{ height: 48 }}
       />
     </header>
   );
