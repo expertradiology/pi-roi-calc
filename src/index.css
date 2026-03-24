@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Slider thumb */
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #116acc;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(17,106,204,0.2), 0 2px 6px rgba(17,106,204,0.25);
+  cursor: pointer;
+  margin-top: -9px;
+}
+.roi-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #116acc;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(17,106,204,0.2), 0 2px 6px rgba(17,106,204,0.25);
+  cursor: pointer;
+}
+.roi-slider::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 6px;
+}
+.roi-slider::-moz-range-track {
+  background: transparent;
+  height: 6px;
+}
+
+@keyframes roi-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes roi-pulse-red {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,27,46,0.2); }
+  50% { box-shadow: 0 0 30px rgba(255,27,46,0.4); }
+}
+@keyframes sync-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.roi-input:focus {
+  border-color: #116acc !important;
+  outline: none;
+}
+.roi-input::placeholder {
+  color: #9ca3af;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+}
