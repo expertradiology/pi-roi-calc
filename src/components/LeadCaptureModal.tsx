@@ -66,6 +66,9 @@ export default function LeadCaptureModal({ isOpen, onClose, onSubmit, results }:
       company: company.trim(),
       company_type: companyType,
       state,
+      roi_net_annual_gain: results.netGain,
+      roi_percentage: results.roi,
+      roi_value_per_case: results.perCaseValue,
     });
     // Reset form
     setFirstname("");
