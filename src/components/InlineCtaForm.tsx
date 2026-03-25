@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
   PRIMARY,
-  PRIMARY_DARK,
-  PRIMARY_LIGHT,
   SUCCESS,
   COLORS,
   COMPANY_TYPES,
