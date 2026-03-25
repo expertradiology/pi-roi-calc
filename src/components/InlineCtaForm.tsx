@@ -83,7 +83,7 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
       <div
         className="relative overflow-hidden rounded-2xl text-center"
         style={{
-          background: "linear-gradient(135deg, #0a2a5e 0%, #116acc 50%, #1a7aee 100%)",
+          background: "linear-gradient(135deg, #0c1322 0%, #182233 50%, #1a2a42 100%)",
           padding: "clamp(24px, 5vw, 48px)",
         }}
       >
@@ -99,7 +99,7 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
         {/* Radial glow */}
         <div
           className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(59,142,237,0.2) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse at 50% 30%, rgba(59,142,237,0.08) 0%, transparent 70%)" }}
         />
 
         {/* ── CTA State ── */}
