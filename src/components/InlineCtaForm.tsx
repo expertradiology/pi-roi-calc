@@ -148,9 +148,9 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
                   stroke="#76ca66"
                   strokeWidth="2"
                   strokeDasharray="400"
-                  strokeDashoffset="400"
+                  strokeDashoffset="0"
                   style={{
-                    animation: "roi-border-draw 2s ease-out forwards, roi-border-glow 2s ease-in-out 2s infinite",
+                    animation: "roi-border-orbit 3s ease-in-out forwards",
                   }}
                 />
               </svg>
