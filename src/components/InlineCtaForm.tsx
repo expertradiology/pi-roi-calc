@@ -54,6 +54,9 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
       company: company.trim(),
       company_type: companyType,
       state,
+      roi_net_annual_gain: results.netGain,
+      roi_percentage: results.roi,
+      roi_value_per_case: results.perCaseValue,
     });
     setSubmitting(false);
   };
@@ -71,8 +74,8 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
   };
 
   const inputStyle = (hasError: boolean) => ({
-    background: COLORS.inputBg,
-    border: `1px solid ${hasError ? "#ef4444" : COLORS.borderInput}`,
+    background: "rgba(255,255,255,0.95)",
+    border: `1px solid ${hasError ? "#ef4444" : "rgba(255,255,255,0.3)"}`,
     padding: "10px 14px",
     color: COLORS.text1,
   });
@@ -82,37 +85,45 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
       <div
         className="relative overflow-hidden rounded-2xl text-center"
         style={{
-          background: "linear-gradient(135deg, #eef4ff 0%, #dbeafe 50%, #eef4ff 100%)",
-          border: "1px solid rgba(17,106,204,0.12)",
+          background: "linear-gradient(135deg, #0a2a5e 0%, #116acc 50%, #1a7aee 100%)",
           padding: "clamp(24px, 5vw, 48px)",
         }}
       >
-        {/* Top accent line */}
+        {/* Grid pattern overlay */}
         <div
-          className="absolute top-0 left-0 right-0 h-[3px]"
-          style={{ background: `linear-gradient(90deg, transparent, ${PRIMARY_LIGHT}, transparent)` }}
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(59,142,237,0.2) 0%, transparent 70%)" }}
         />
 
         {/* ── CTA State ── */}
         {!showForm && (
-          <div>
+          <div className="relative">
             <p
               className="text-[11px] font-sans font-semibold uppercase m-0 mb-3"
-              style={{ letterSpacing: "0.15em", color: PRIMARY }}
+              style={{ letterSpacing: "0.15em", color: "rgba(255,255,255,0.6)" }}
             >
               See the Difference Firsthand
             </p>
             <h2
               className="font-sans font-bold m-0 mb-3 leading-tight"
-              style={{ fontSize: "clamp(24px, 3vw, 34px)", color: COLORS.heading }}
+              style={{ fontSize: "clamp(24px, 3vw, 34px)", color: "#ffffff" }}
             >
               See What Your Cases Look Like
               <br />
-              <span style={{ color: COLORS.accentText }}>with Illustrated Reports</span>
+              <span style={{ color: "#93c5fd" }}>with Illustrated Reports</span>
             </h2>
             <p
               className="text-[14px] font-sans leading-relaxed mx-auto mb-7"
-              style={{ color: COLORS.text2, maxWidth: 540 }}
+              style={{ color: "rgba(255,255,255,0.7)", maxWidth: 540 }}
             >
               We will redesign a sample report from one of your cases — with custom anatomical illustrations and
               plain-language findings — so you can see the difference firsthand. No cost, no obligation.
@@ -123,14 +134,13 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
               className="rounded-xl inline-block mb-6"
               style={{
                 padding: "14px 24px",
-                background: "rgba(255,255,255,0.7)",
-                border: "1px solid rgba(17,106,204,0.1)",
+                background: "rgba(255,255,255,0.1)",
               }}
             >
-              <p className="text-[12px] font-sans m-0 mb-0.5" style={{ color: COLORS.text3 }}>
+              <p className="text-[12px] font-sans m-0 mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
                 Your projected annual gain:
               </p>
-              <p className="text-[24px] font-sans font-bold m-0" style={{ color: COLORS.accentText }}>
+              <p className="text-[24px] font-sans font-bold m-0" style={{ color: "#ffffff" }}>
                 {formatCurrency(results.netGain)} at {results.roi.toFixed(0)}% ROI
               </p>
             </div>
@@ -140,8 +150,8 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
                 onClick={() => setShowForm(true)}
                 className="font-sans font-bold text-[15px] border-none rounded-lg cursor-pointer"
                 style={{
-                  background: `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY_LIGHT})`,
-                  color: "#fff",
+                  background: "#ffffff",
+                  color: PRIMARY,
                   padding: "14px 32px",
                 }}
               >
@@ -154,7 +164,7 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
                 "Illustrated report from your actual case",
                 "Custom ROI projection for your firm",
               ].map((txt, i) => (
-                <span key={i} className="text-[12px] font-sans flex items-center gap-1.5" style={{ color: COLORS.text3 }}>
+                <span key={i} className="text-[12px] font-sans flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.6)" }}>
                   <span className="text-[14px]" style={{ color: SUCCESS }}>
                     &#10003;
                   </span>{" "}
@@ -167,11 +177,11 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
 
         {/* ── Form State ── */}
         {showForm && (
-          <div className="max-w-[480px] mx-auto text-left">
-            <h3 className="font-sans font-bold text-[24px] m-0 mb-1.5 text-center" style={{ color: COLORS.heading }}>
+          <div className="relative max-w-[480px] mx-auto text-left">
+            <h3 className="font-sans font-bold text-[24px] m-0 mb-1.5 text-center" style={{ color: "#ffffff" }}>
               Tell Us About Your Firm
             </h3>
-            <p className="text-[13px] font-sans m-0 mb-6 text-center" style={{ color: COLORS.text3 }}>
+            <p className="text-[13px] font-sans m-0 mb-6 text-center" style={{ color: "rgba(255,255,255,0.6)" }}>
               We'll reach out within one business day with your sample report.
             </p>
 
@@ -245,12 +255,9 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
                 disabled={submitting}
                 className="flex-1 font-sans font-bold text-[15px] border-none rounded-lg cursor-pointer"
                 style={{
-                  background: submitting
-                    ? "#94a3b8"
-                    : `linear-gradient(135deg, ${PRIMARY_DARK}, ${PRIMARY_LIGHT})`,
-                  color: "#fff",
+                  background: submitting ? "rgba(255,255,255,0.3)" : "#ffffff",
+                  color: submitting ? "rgba(255,255,255,0.7)" : PRIMARY,
                   padding: "14px",
-                  opacity: submitting ? 0.7 : 1,
                 }}
               >
                 {submitting ? "Sending..." : "Submit Request"}
@@ -260,15 +267,15 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
                 className="font-sans text-[14px] rounded-lg cursor-pointer"
                 style={{
                   background: "transparent",
-                  color: COLORS.text2,
-                  border: `1px solid ${COLORS.borderInput}`,
+                  color: "rgba(255,255,255,0.7)",
+                  border: "1px solid rgba(255,255,255,0.25)",
                   padding: "14px 20px",
                 }}
               >
                 Back
               </button>
             </div>
-            <p className="text-[11px] font-sans text-center mt-3 mb-0 leading-relaxed" style={{ color: COLORS.text4 }}>
+            <p className="text-[11px] font-sans text-center mt-3 mb-0 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
               By submitting, you agree to be contacted regarding our illustrated radiology report services. We respect
               your privacy and will never share your information.
             </p>
