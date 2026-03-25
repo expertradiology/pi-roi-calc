@@ -48,8 +48,8 @@ export default function Hero() {
               className="text-[13px] sm:text-[14px] leading-relaxed mt-2 sm:mt-3 mb-0 max-w-[520px]"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              Standard radiology reports are written for doctors, not juries. See how illustrated, plain-language reports
-              designed for litigation translate to recoverable value for your firm.
+              Standard radiology reports are written for doctors, not for your demands or trial. See how our PrecisionPlus V3 reports offer
+              illustrated, plain-language findings designed to translate to recoverable value for your firm.
             </p>
             <button
               onClick={() => {
