@@ -43,6 +43,14 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+@keyframes roi-border-draw {
+  0% { stroke-dashoffset: 400; stroke-opacity: 0.4; }
+  100% { stroke-dashoffset: 0; stroke-opacity: 1; }
+}
+@keyframes roi-border-glow {
+  0%, 100% { stroke-opacity: 0.6; filter: drop-shadow(0 0 4px rgba(118,202,102,0.3)); }
+  50% { stroke-opacity: 1; filter: drop-shadow(0 0 12px rgba(118,202,102,0.6)); }
+}
 
 /* ── Form inputs ── */
 .roi-input {

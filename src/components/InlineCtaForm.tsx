@@ -127,18 +127,37 @@ export default function InlineCtaForm({ results, onSubmit }: InlineCtaFormProps)
               plain-language findings — so you can see the difference firsthand. No cost, no obligation.
             </p>
 
-            {/* ROI callout */}
+            {/* ROI callout with animated green border */}
             <div
-              className="rounded-xl inline-block mb-6"
+              className="roi-glow-border rounded-xl inline-block mb-6 relative"
               style={{
-                padding: "14px 24px",
-                background: "rgba(255,255,255,0.1)",
+                padding: "16px 28px",
+                background: "rgba(255,255,255,0.06)",
               }}
             >
-              <p className="text-[12px] font-sans m-0 mb-0.5" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {/* Animated SVG border */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                style={{ borderRadius: "inherit" }}
+              >
+                <rect
+                  x="1" y="1"
+                  width="calc(100% - 2px)" height="calc(100% - 2px)"
+                  rx="12" ry="12"
+                  fill="none"
+                  stroke="#76ca66"
+                  strokeWidth="2"
+                  strokeDasharray="400"
+                  strokeDashoffset="400"
+                  style={{
+                    animation: "roi-border-draw 2s ease-out forwards, roi-border-glow 2s ease-in-out 2s infinite",
+                  }}
+                />
+              </svg>
+              <p className="text-[12px] font-sans m-0 mb-0.5 relative" style={{ color: "rgba(255,255,255,0.6)" }}>
                 Your projected annual gain:
               </p>
-              <p className="text-[24px] font-sans font-bold m-0" style={{ color: "#ffffff" }}>
+              <p className="text-[24px] font-sans font-bold m-0 relative" style={{ color: "#ffffff" }}>
                 {formatCurrency(results.netGain)} at {results.roi.toFixed(0)}% ROI
               </p>
             </div>
