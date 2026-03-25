@@ -20,10 +20,10 @@ export async function submitToHubSpot(data: LeadFormData): Promise<boolean> {
     { objectTypeId: "0-1", name: "firstname", value: data.firstname },
     { objectTypeId: "0-1", name: "lastname", value: data.lastname },
     { objectTypeId: "0-1", name: "email", value: data.email },
-    { objectTypeId: "0-1", name: "phone", value: data.phone },
+    { objectTypeId: "0-1", name: "mobilephone", value: data.phone },
     { objectTypeId: "0-1", name: "company", value: data.company },
-    { objectTypeId: "0-1", name: "company_type", value: data.company_type },
-    { objectTypeId: "0-1", name: "state", value: data.state },
+    { objectTypeId: "0-2", name: "organization_type", value: data.company_type },
+    { objectTypeId: "0-2", name: "state_region", value: data.state },
   ];
 
   // Append ROI calculator values as hidden fields
@@ -45,11 +45,21 @@ export async function submitToHubSpot(data: LeadFormData): Promise<boolean> {
     },
   };
 
-  const response = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-  return response.ok;
+    if (!response.ok) {
+      const errorBody = await response.text();
+      console.error(`HubSpot submission failed (${response.status}):`, errorBody);
+    }
+
+    return response.ok;
+  } catch (error) {
+    console.error("HubSpot submission error:", error);
+    return false;
+  }
 }
